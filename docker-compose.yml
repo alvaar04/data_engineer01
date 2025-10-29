@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:14.19-alpine3.21
+    ports:
+      - 5432:5432 # <PUERTO_HOST>:<PUERTO_CONTENEDOR>
+    volumes:
+    # Necesitamos montar 2 volumenes
+      # Datos persistentes de la bd
+      # Carpeta gestionada por docker y coluta a mi
+      - pgdata:/var/lib/postgresql/data # nombre_volumen_docker:/var/lib/postgresql/data (esto es la carpeta en el contenedor)
+      # Carpeta /sql que usará la bd cada vez que se inicialice, debe estar en una carpeta en concreto
+      # Solo refleja lo que hay en esa carpeta
+      - ./sql:/docker-entrypoint-initdb.d # ruta_carpeta:ruta_contendor
+    # Ruta al fichero de configuración
+    env_file:
+      - .env
+    # Hay que usarlo porque la imagen de docker usa esas por defecto
+    environment:
+      # Lee el valor de ${DB_USER} (del .env) y lo asigna a POSTGRES_USER
+      - POSTGRES_USER=${DB_USER}
+      # Lee el valor de ${DB_PASSWORD} y lo asigna a POSTGRES_PASSWORD
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      # Lee el valor de ${DB_NAME} y lo asigna a POSTGRES_DB
+      - POSTGRES_DB=${DB_NAME}
+  
+# Hay que definir los volumenes persistentes que gestiona docker
+volumes:
+  pgdata:
