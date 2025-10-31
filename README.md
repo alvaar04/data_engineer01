@@ -23,7 +23,7 @@ Para ejecutar este pipeline en tu máquina local, solo necesitas tener **Git** y
 
 ```bash
 git clone https://github.com/alvaar04/data_engineer01.git
-cd data_engineering01
+cd data_engineer01
 ````
 
 ### 2\. Configuración del Entorno
