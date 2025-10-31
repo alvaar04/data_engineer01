@@ -22,7 +22,20 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       # Lee el valor de ${DB_NAME} y lo asigna a POSTGRES_DB
       - POSTGRES_DB=${DB_NAME}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   
+  pipeline:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
 # Hay que definir los volumenes persistentes que gestiona docker
 volumes:
   pgdata:

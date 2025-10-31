@@ -1,4 +1,6 @@
-CREATE TABLE IF NOT EXISTS precios_cripto (
+CREATE SCHEMA IF NOT EXISTS crypto;
+
+CREATE TABLE IF NOT EXISTS crypto.precios_crypto (
     id SERIAL PRIMARY KEY, -- Serial hace que cada fila tenga un valor +1 al anterior
     id_moneda VARCHAR(50) NOT NULL,
     nombre VARCHAR(100),

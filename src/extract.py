@@ -1,6 +1,10 @@
+import json
+
 import requests
 
-from src import config
+import config
+
+DATA_PATH = config.get_data_path()
 
 
 def fetch_data_from_api():
@@ -25,9 +29,19 @@ def fetch_data_from_api():
 
     response = requests.get(API_URL, params=params)
 
-    return response
+    return response.json()
 
 
-data = fetch_data_from_api().json()
+def extract_data(path=DATA_PATH):
+    """
+    Extrae los datos de la api y los almacena en formato json
+    """
+    raw_data = fetch_data_from_api()
+    with open(DATA_PATH, mode="w", encoding="utf-8") as f:
 
-print(data)
+        # Indent 4 mejora la legibilidad, y ensure_ascii=False hace que algunos caracteres no reconocidos si aparezcan.
+        json.dump(raw_data, f, indent=4, ensure_ascii=False)
+
+
+if __name__ == "__main__":
+    ...

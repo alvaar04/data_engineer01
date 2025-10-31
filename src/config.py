@@ -14,3 +14,22 @@ def get_api_config():
     }
 
     return config
+
+
+def get_data_path() -> str:
+    return "./data/raw_data.json"
+
+
+def get_db_config():
+    db_user = os.getenv("DB_USER")
+    db_password = os.getenv("DB_PASSWORD")
+    db_name = os.getenv("DB_NAME")
+    db_host = os.getenv("DB_HOST")
+    db_port = os.getenv("DB_PORT")
+    return {
+        "db_user": db_user,
+        "db_password": db_password,
+        "db_name": db_name,
+        "db_host": db_host,
+        "db_port": db_port,
+    }
