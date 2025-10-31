@@ -22,7 +22,7 @@ Para ejecutar este pipeline en tu máquina local, solo necesitas tener **Git** y
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone [https://github.com/TU_USUARIO/TU_REPO.git](https://github.com/TU_USUARIO/TU_REPO.git)
+git clone 
 cd TU_REPO
 ````
 
@@ -98,17 +98,3 @@ docker-compose up -d db
 | `porcentaje_cambio_24h` | `FLOAT` | % de cambio de precio en las últimas 24h. |
 | `api_last_updated` | `TIMESTAMP` | Fecha (UTC) de la última actualización del dato en la API. |
 | `fecha_insercion` | `TIMESTAMP` | Fecha (UTC) en que *nuestro pipeline* insertó el dato (`DEFAULT NOW()`). |
-
-```
-
----
-
-### 💡 Por Qué Esta Versión es Mejor (Notas de Mentor)
-
-1.  **Es Accionable:** La sección **"Cómo Empezar"** es lo más importante. Le dice a cualquiera (incluido tu "yo" del futuro) cómo usar tu proyecto de forma inmediata.
-2.  **Profesionaliza la Configuración:** Menciona el `.env` y la (buena práctica) de tener un `.env.example`. Esto demuestra que sabes cómo gestionar secretos.
-3.  **Define el "Stack":** La sección "Tech Stack" da un resumen de 5 segundos de tus habilidades.
-4.  **Aclara el Esquema:** Moví tu lista de columnas a la sección "Load" y la puse en una tabla. Es el lugar lógico y la tabla lo hace mucho más legible.
-5.  **Define el Propósito:** El primer párrafo ahora es mucho más claro. No es "un ETL", es un ETL para "construir un dataset histórico". Esto le da un propósito clave a tu proyecto.
-6.  **ETL más Claro:** Tus secciones de E, T y L ahora son más específicas (ej. "renombrar columnas", "añadir (append)").
-```
