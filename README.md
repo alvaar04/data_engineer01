@@ -22,8 +22,8 @@ Para ejecutar este pipeline en tu máquina local, solo necesitas tener **Git** y
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone 
-cd TU_REPO
+git clone https://github.com/alvaar04/data_engineer01.git
+cd data_engineering01
 ````
 
 ### 2\. Configuración del Entorno
@@ -32,7 +32,7 @@ Este proyecto necesita un fichero `.env` para gestionar las credenciales de la b
 
 1.  Crea un fichero llamado `.env` en la raíz del proyecto.
 
-2.  Copia y pega el contenido de `.env.example` (¡deberías crear este fichero\!) y rellena los valores:
+2.  Copia y pega el contenido de `.env.example`y rellena los valores:
 
     ```text
     # Fichero .env
@@ -82,7 +82,7 @@ docker-compose up -d db
 
 ### 3\. Load
 
-  * **Destino:** Base de datos PostgreSQL (corriendo en Docker).
+  * **Destino:** Base de datos PostgreSQL.
   * **Acción:** El DataFrame limpio se **añade** (append) a la tabla `precios_cripto`. Esto permite que, con cada ejecución, el historial de precios crezca.
 
 #### Esquema de la Tabla (`precios_cripto`)
