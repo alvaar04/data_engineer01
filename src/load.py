@@ -36,4 +36,4 @@ def load_data(clean_data: pd.DataFrame):
         index=False,
     )
 
-    print("Datos cargados de forma existos en la base de datos: crypto.precios_crypto")
+    print("Datos cargados de forma existosa en la base de datos: crypto.precios_crypto")
